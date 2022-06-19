@@ -1,0 +1,33 @@
+<!-- Q2> Given an array arr of size n and an integer X. Find if there's a triplet in the array which sums up to the given integer X. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Triplet in an array</title>
+  </head>
+  <body>
+    <script>
+      function findTriplet(array, arr_size, X) {
+        let l, r;
+        var count = 0;
+        for (let i = 0; i < arr_size - 2; i++) {
+          for (let j = i + 1; j < arr_size - 1; j++) {
+            for (let k = j + 1; k < arr_size; k++) {
+              if (array[i] + array[j] + array[k] == X) {
+                count++;
+                return count;
+              }
+            }
+          }
+        }
+        return false;
+      }
+      let array = [1, 4, 45, 6, 10, 8];
+      let X = 22;
+      let arr_size = array.length;
+      console.log(findTriplet(array, arr_size, X));
+    </script>
+  </body>
+</html>
