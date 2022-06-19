@@ -1,0 +1,38 @@
+<!-- Q3> Given an array of positive integers. Find the length of the longest sub-sequence such that elements in the subsequence are consecutive integers, the consecutive numbers can be in any order. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest sub-sequence</title>
+</head>
+<body>
+    <script>
+
+        function findLongestConseqSubseq(array, size) {
+            let ans = 0, count = 0;
+            array.sort(function (a, b) { return a - b; })
+    
+            var v = [];
+            v.push(array[0]);
+            for (let i = 1; i < size; i++) {
+                if (array[i] != array[i - 1])
+                    v.push(array[i]);
+            }
+            for (let i = 0; i < v.length; i++) {
+                if (i > 0 && v[i] == v[i - 1] + 1)
+                    count++;
+                else
+                    count = 1;
+                ans = Math.max(ans, count);
+            }
+            return ans;
+        }
+        let array = [2,6,1,9,4,5,3];
+        let size = array.length;
+        console.log(findLongestConseqSubseq(array,size));
+    </script>
+    
+</body>
+</html>
